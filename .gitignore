@@ -25,10 +25,6 @@
 *.mdb
 *.mdb.meta
 
-# Scene-specific
-*.unity
-*.unity.meta
-
 # Build artifacts
 *.apk
 *.aab
@@ -42,7 +38,3 @@
 *.stacktrace
 *.log
 
-# Ignore asset store and package cache
-[Aa]ssets/AssetStoreTools*
-[Aa]ssets/Plugins/*
-UserSettings/
