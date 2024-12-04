@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // For UI Text component
+using UnityEngine.UI; // For Slider and UI components
 using System.Collections.Generic;
 
 public class TimeFrameSwitcher : MonoBehaviour
@@ -7,34 +7,39 @@ public class TimeFrameSwitcher : MonoBehaviour
     public List<GameObject> timeframes;  // List of all timeframe objects
     public Text modelText;               // Reference to a Text UI element to display the model name
     public Text volumeText;              // Reference to a Text UI element to display the volume
+    public Slider timeframeSlider;       // Reference to the UI Slider component
     public ParentController parentController; // Reference to ParentController to access active child info
     private int currentFrameIndex = 0;   // Index of the currently active timeframe
 
     void Start()
     {
-        // Set only the first timeframe to active, hide the rest
-        UpdateModelText(timeframes[currentFrameIndex].name);
+        if (timeframeSlider != null)
+        {
+            // Dynamically adjust the slider range based on the number of timeframes
+            timeframeSlider.minValue = 0;
+            timeframeSlider.maxValue = timeframes.Count - 1;
+
+            // Set the initial slider value
+            timeframeSlider.value = currentFrameIndex;
+
+            // Add a listener to respond to slider value changes
+            timeframeSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        }
+        else
+        {
+            Debug.LogError("Timeframe Slider is not assigned.");
+        }
+
+        // Initialize active timeframe
         UpdateActiveTimeFrame();
     }
 
-    void Update()
+    void OnSliderValueChanged(float value)
     {
-        // Switch timeframes on Enter key press
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SwitchToNextTimeFrame();
-        }
-    }
+        // Update the current frame index based on the slider's value
+        currentFrameIndex = Mathf.RoundToInt(value);
 
-    void SwitchToNextTimeFrame()
-    {
-        // Deactivate the current timeframe
-        timeframes[currentFrameIndex].SetActive(false);
-
-        // Move to the next timeframe in the list
-        currentFrameIndex = (currentFrameIndex + 1) % timeframes.Count;
-
-        // Activate the new current timeframe
+        // Update the active timeframe
         UpdateActiveTimeFrame();
     }
 
@@ -54,7 +59,7 @@ public class TimeFrameSwitcher : MonoBehaviour
 
     void UpdateModelText(string modelName)
     {
-        Debug.Log($"Model name: {modelName}".GetType());
+        Debug.Log($"Model name: {modelName}");
         if (modelText != null)
         {
             modelText.text = $"Model name: {modelName}";
@@ -86,7 +91,7 @@ public class TimeFrameSwitcher : MonoBehaviour
             {
                 // Call CalculateMeshVolume using the ChildClick class directly
                 float volume = ChildClick.CalculateMeshVolume(activeChild.gameObject);
-                
+
                 // Get the nucleus name
                 string nucleusName = activeChild.gameObject.name;
 
