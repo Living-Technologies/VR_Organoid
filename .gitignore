@@ -1,0 +1,48 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Visual Studio / MonoDevelop generated files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Unity metadata
+*.pidb.meta
+*.pdb.meta
+*.mdb
+*.mdb.meta
+
+# Scene-specific
+*.unity
+*.unity.meta
+
+# Build artifacts
+*.apk
+*.aab
+*.exe
+*.dll
+*.manifest
+*.app
+*.ipa
+
+# Crash and debug files
+*.stacktrace
+*.log
+
+# Ignore asset store and package cache
+[Aa]ssets/AssetStoreTools*
+[Aa]ssets/Plugins/*
+UserSettings/
