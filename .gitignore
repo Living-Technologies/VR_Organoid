@@ -10,7 +10,6 @@
 # Visual Studio / MonoDevelop generated files
 *.csproj
 *.unityproj
-*.sln
 *.suo
 *.tmp
 *.user
