@@ -13,7 +13,14 @@ public class ScaleChildren : MonoBehaviour
             return;
         }
 
-        foreach (Transform child in transform)
+        // Create a separate list to iterate over to avoid hierarchy modification issues
+        Transform[] originalChildren = new Transform[transform.childCount];
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            originalChildren[i] = transform.GetChild(i);
+        }
+
+        foreach (Transform child in originalChildren)
         {
             // Duplicate child object
             GameObject duplicatedChild = Instantiate(child.gameObject, child.position, child.rotation);
@@ -31,4 +38,3 @@ public class ScaleChildren : MonoBehaviour
         }
     }
 }
-
