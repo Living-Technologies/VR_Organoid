@@ -15,36 +15,47 @@ public class TimeFrameSwitcher : MonoBehaviour
     void Update()
     {
         // Check for Enter key or Meta Quest button press
-        if (Input.GetKeyDown(KeyCode.Return) || IsMetaQuestButtonPressed())
+        if (Input.GetKeyDown(KeyCode.Return) || IsRightGestureDetected())
         {
             SwitchToNextTimeFrame();
+        }
+        else if (IsLeftGestureDetected())
+        {
+            SwitchToPreviousTimeFrame();
         }
     }
 
     void SwitchToNextTimeFrame()
     {
-        // Deactivate the current timeframe
         timeframes[currentFrameIndex].SetActive(false);
-
-        // Move to the next timeframe in the list
         currentFrameIndex = (currentFrameIndex + 1) % timeframes.Count;
+        UpdateActiveTimeFrame();
+    }
 
-        // Activate the new current timeframe
+    void SwitchToPreviousTimeFrame()
+    {
+        timeframes[currentFrameIndex].SetActive(false);
+        currentFrameIndex = (currentFrameIndex - 1 + timeframes.Count) % timeframes.Count;
         UpdateActiveTimeFrame();
     }
 
     void UpdateActiveTimeFrame()
     {
-        // Make only the current timeframe active
         for (int i = 0; i < timeframes.Count; i++)
         {
             timeframes[i].SetActive(i == currentFrameIndex);
         }
     }
 
-    bool IsMetaQuestButtonPressed()
+    bool IsRightGestureDetected()
     {
-        // Replace `Button.One` with the correct Oculus button reference
+        // Replace `Button.One` with the correct Oculus right-hand button/gesture reference
         return OVRInput.GetDown(OVRInput.Button.One);
+    }
+
+    bool IsLeftGestureDetected()
+    {
+        // Replace `Button.Two` with the correct Oculus left-hand button/gesture reference
+        return OVRInput.GetDown(OVRInput.Button.Two);
     }
 }
