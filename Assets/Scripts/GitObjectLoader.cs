@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using Oculus.Interaction; // Make sure this namespace is included
 using System.Collections;
 using Newtonsoft.Json;  // Include Newtonsoft.Json for JSON parsing
 using System;
@@ -100,13 +101,21 @@ public class ObjFromGitHub : MonoBehaviour
                         renderer.material = targetMaterial; // Use material from Inspector
                     }
 
-                    Debug.Log("Model loaded, material assigned, transformations applied.");
+                    // Add a BoxCollider to the meshTransform (child object)
+                    BoxCollider boxCollider = meshTransform.gameObject.AddComponent<BoxCollider>();
+                    boxCollider.size = targetColliderSize; // Make sure the BoxCollider is sized correctly
+
+                    // Add the OVRGrabInteractable to make the object interactable with Meta SDK
+                    // OVRGrabInteractable grabInteractable = meshTransform.gameObject.AddComponent<OVRGrabInteractable>();
+
+                    Debug.Log("Model loaded, material assigned, transformations applied, BoxCollider and OVRGrabInteractable added.");
                 }
                 else
                 {
                     Debug.LogError("No mesh found in the loaded model.");
                 }
             }
+
             else
             {
                 Debug.LogError("Failed to load the OBJ model.");
