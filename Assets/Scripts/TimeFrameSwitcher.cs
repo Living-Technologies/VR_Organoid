@@ -25,14 +25,14 @@ public class TimeFrameSwitcher : MonoBehaviour
         }
     }
 
-    void SwitchToNextTimeFrame()
+    public void SwitchToNextTimeFrame()
     {
         timeframes[currentFrameIndex].SetActive(false);
         currentFrameIndex = (currentFrameIndex + 1) % timeframes.Count;
         UpdateActiveTimeFrame();
     }
 
-    void SwitchToPreviousTimeFrame()
+    public void SwitchToPreviousTimeFrame()
     {
         timeframes[currentFrameIndex].SetActive(false);
         currentFrameIndex = (currentFrameIndex - 1 + timeframes.Count) % timeframes.Count;
