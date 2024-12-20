@@ -16036,7 +16036,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da66781ba6e782f4ebe1c34b62a1c99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: intro-scene
 --- !u!4 &655789187
 Transform:
   m_ObjectHideFlags: 0
@@ -24920,7 +24919,7 @@ PrefabInstance:
     - target: {fileID: 8182325033161516267, guid: 5292db714b0f87045a7dfd9be93b1be5,
         type: 3}
       propertyPath: m_IsOn
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8182325033161516267, guid: 5292db714b0f87045a7dfd9be93b1be5,
         type: 3}
@@ -51613,7 +51612,7 @@ MonoBehaviour:
   githubRepoUrl: https://api.github.com/repos/KrijnS/3d-objects/contents
   targetMaterial: {fileID: 2100000, guid: 8843b3cb1c5d54343bb2fa8431bb10c2, type: 2}
   radius: 2
-  targetColliderSize: {x: 0.5, y: 0.5, z: 0.5}
+  targetColliderSize: {x: 1, y: 1, z: 1}
 --- !u!1 &2128134068
 GameObject:
   m_ObjectHideFlags: 0

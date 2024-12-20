@@ -13,7 +13,7 @@ public class ObjFromGitHub : MonoBehaviour
     public string githubRepoUrl = "https://api.github.com/repos/KrijnS/3d-objects/contents"; // URL for listing files in the GitHub repo
     public Material targetMaterial; // Assign the material in the Inspector
     private int objectCount = 0; // Keep track of the number of objects loaded
-    public float radius = 2.0f; // Radius for positioning objects in a circle
+    public float radius = 1.0f; // Radius for positioning objects in a circle
 
     // Define the target BoxCollider size
     public Vector3 targetColliderSize = new Vector3(0.5f, 0.5f, 0.5f);

@@ -5,14 +5,12 @@ using System.Collections;
 
 public class SceneChanger : MonoBehaviour
 {
-    public string sceneName;  // The name of the scene to load
-
     public void ChangeScene(string sceneName)
     {
-        StartCoroutine(LoadSceneAsync());
+        StartCoroutine(LoadSceneAsync(sceneName));
     }
 
-    private IEnumerator LoadSceneAsync()
+    private IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);  // Load scene asynchronously
         asyncLoad.allowSceneActivation = false;  // Optional: Prevent automatic scene activation

@@ -4,7 +4,7 @@ public class ThrowableReset : MonoBehaviour
 {
     private Vector3 originalPosition; // Store the initial position
     private Rigidbody rb;             // Reference to the Rigidbody component
-    public float resetThreshold = -50f; // Y-position threshold for resetting
+    public float resetThreshold = 20f; // Y-position threshold for resetting
 
     void Start()
     {
@@ -16,7 +16,10 @@ public class ThrowableReset : MonoBehaviour
     void Update()
     {
         // Check if the object has fallen below the threshold
-        if (transform.position.y < resetThreshold)
+        if (transform.position.y < -resetThreshold || transform.position.y > resetThreshold 
+            || transform.position.x > resetThreshold || transform.position.x < -resetThreshold 
+            || transform.position.z > resetThreshold || transform.position.z < -resetThreshold
+               )
         {
             ResetObject();
         }
