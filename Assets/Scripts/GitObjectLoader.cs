@@ -12,7 +12,8 @@ public class ObjFromGitHub : MonoBehaviour
 {
     public string githubRepoUrl = "https://api.github.com/repos/KrijnS/3d-objects/contents"; // URL for listing files in the GitHub repo
     public Material targetMaterial; // Assign the material in the Inspector
-    private float currentXPosition = 0.0f; // Keep track of the current x position to space the objects
+    private int objectCount = 0; // Keep track of the number of objects loaded
+    public float radius = 2.0f; // Radius for positioning objects in a circle
 
     // Define the target BoxCollider size
     public Vector3 targetColliderSize = new Vector3(0.5f, 0.5f, 0.5f);
@@ -88,11 +89,18 @@ public class ObjFromGitHub : MonoBehaviour
                     // Scale the model to fit inside the target BoxCollider
                     FitToCollider(meshTransform);
 
-                    // Translate the mesh object to position it next to the previous model
-                    meshTransform.position = new Vector3(currentXPosition, 1.0f, -0.5f);
+                    // Calculate the angle for the current object
+                    float angle = objectCount * (2 * Mathf.PI / 10); // Adjust the divisor to change the number of objects in the circle
 
-                    // Increment the currentXPosition by 1 for the next object
-                    currentXPosition += 1.0f;
+                    // Calculate the position based on the angle and radius
+                    float xPosition = Mathf.Cos(angle) * radius;
+                    float zPosition = Mathf.Sin(angle) * radius;
+
+                    // Set the position of the mesh object
+                    meshTransform.position = new Vector3(xPosition, 1.0f, zPosition);
+
+                    // Increment the object count for the next object
+                    objectCount++;
 
                     // Assign the material to all renderers in the mesh
                     Renderer[] renderers = meshTransform.GetComponentsInChildren<Renderer>();
