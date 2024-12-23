@@ -31187,7 +31187,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
@@ -47825,8 +47825,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2.2803068
-  m_Center: {x: -2.596539, y: 3.6501732, z: 3.5269315}
+  m_Radius: 1.9334068
+  m_Center: {x: -2.596541, y: 3.4820058, z: 3.7056632}
 --- !u!114 &1324037883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58591,7 +58591,7 @@ Transform:
   m_GameObject: {fileID: 1786406116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.1205, y: 1.172, z: 0.49650002}
+  m_LocalPosition: {x: 0.1205, y: 1.172, z: 0.363}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62019,10 +62019,26 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1919831826}
-    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 30d1bf546dc89e14896923945223c515,
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d1bf546dc89e14896923945223c515,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919831830}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d1bf546dc89e14896923945223c515,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919831829}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 30d1bf546dc89e14896923945223c515,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1919831828}
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 30d1bf546dc89e14896923945223c515,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919831832}
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 30d1bf546dc89e14896923945223c515,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1919831831}
   m_SourcePrefab: {fileID: 100100000, guid: 30d1bf546dc89e14896923945223c515, type: 3}
 --- !u!1 &1919831825 stripped
 GameObject:
@@ -62057,8 +62073,71 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1919831824}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &1919831828
-SphereCollider:
+--- !u!65 &1919831828
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919831825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.06725924, y: 2.2174823, z: 2.2567327}
+  m_Center: {x: -1.3534507, y: 4.9740653, z: -0.09654536}
+--- !u!65 &1919831829
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919831825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.045470595, y: 2.186163, z: 2.4864497}
+  m_Center: {x: 1.4068906, y: 4.983179, z: -0.053375248}
+--- !u!65 &1919831830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919831825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1455128, y: 2.186627, z: 0.06356368}
+  m_Center: {x: 0.07193555, y: 4.998926, z: -1.4639924}
+--- !u!65 &1919831831
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -62072,12 +62151,25 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.9194278
-  m_Center: {x: 0.023912448, y: 5.419119, z: -0.06382865}
+  m_Size: {x: 0.62587905, y: 0.23227717, z: 0.58839935}
+  m_Center: {x: 0.0076616085, y: 4.467698, z: 0.030503886}
+--- !u!114 &1919831832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919831827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2094b1f049debdd4db91dd020f5aadd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 1065012174}
 --- !u!1 &1920546201
 GameObject:
   m_ObjectHideFlags: 0
@@ -67646,22 +67738,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.118180506
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.118180506
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 0.118180506
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.451
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
