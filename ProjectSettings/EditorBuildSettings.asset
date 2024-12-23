@@ -8,9 +8,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/intro-scene.unity
     guid: ed1225a14e74c9d48b8bb20b70d427b7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/basketball.unity
+    guid: 8660406cf6b590648ad881d7a2406bc9
+  - enabled: 1
+    path: Assets/interactive-organoid.unity
+    guid: 5e57b2afba3ec464395788ee8f2713e5
+  - enabled: 1
+    path: Assets/array.unity
+    guid: ee6417140c7a66944a0aaea22da484cd
+  - enabled: 1
+    path: Assets/sandbox.unity
+    guid: a0bf2c152a2d5d74281b875c3ca6f15c
+  - enabled: 1
+    path: Assets/timelapse-gesture.unity
+    guid: a50c466ebf394de4b8e2c692c6236aec
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2ca5cf7f0ae7719428cf6cfd4090c8a3,
       type: 2}
