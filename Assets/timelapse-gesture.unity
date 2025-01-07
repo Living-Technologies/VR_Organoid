@@ -1439,6 +1439,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: iso-crop-mosaic_7
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b1c3d21a39d9c5a459659190c1486b55,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: b1c3d21a39d9c5a459659190c1486b55,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2349,6 +2354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: iso-crop-mosaic_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e0fda692a4c37884786a3ad0d6b2887e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: e0fda692a4c37884786a3ad0d6b2887e,
         type: 3}
@@ -4384,6 +4394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: iso-crop-mosaic_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 506a27fa35b346b489581218aad99992,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: 506a27fa35b346b489581218aad99992,
         type: 3}
@@ -7267,6 +7282,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: iso-crop-mosaic_6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cac3b41178000e045952f65d8e12b243,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: cac3b41178000e045952f65d8e12b243,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -9597,6 +9617,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: iso-crop-mosaic_9
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fd5f28cfaf53a7341a8666f3d6febbd9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: fd5f28cfaf53a7341a8666f3d6febbd9,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10369,6 +10394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: iso-crop-mosaic_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 29252e9d6d922c9459b1e25c5db71d44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: 29252e9d6d922c9459b1e25c5db71d44,
         type: 3}
@@ -11782,6 +11812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: iso-crop-mosaic_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4eae5bfc69fc88543a20ed8fe53dbd3a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: 4eae5bfc69fc88543a20ed8fe53dbd3a,
         type: 3}
@@ -13578,6 +13613,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: iso-crop-mosaic_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3d6fd62031276d44a90611d323973c74,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: 3d6fd62031276d44a90611d323973c74,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -14011,6 +14051,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: iso-crop-mosaic_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9d7369d604fb4064381604c46aaecc44,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2675477994484174687, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
