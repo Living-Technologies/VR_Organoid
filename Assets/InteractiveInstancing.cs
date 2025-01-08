@@ -38,34 +38,36 @@ public class InteractiveInstancing : MonoBehaviour
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 Debug.Log($"Clicked on object: {clickedObject.name}");
-
-                // Ensure the clicked object has a MeshFilter
-                MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
-
-                if (clickedMeshFilter != null)
+                if(clickedObject.name != "Sphere")
                 {
-                    // Set the mesh of the placeholder to match the clicked object
-                    placeholderMeshFilter.mesh = clickedMeshFilter.mesh;
+                    // Ensure the clicked object has a MeshFilter
+                    MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
 
-                    // Adjust the position of the placeholder based on the mesh bounds
-                    AlignPlaceholderWithMeshBounds(placeholderMeshFilter.mesh);
-
-                    // Now ensure that the collider on the clicked object is convex
-                    Collider clickedCollider = clickedObject.GetComponent<Collider>();
-                    if (clickedCollider != null && clickedCollider is MeshCollider meshCollider)
+                    if (clickedMeshFilter != null && clickedObject.name != "Sphere")
                     {
-                        meshCollider.convex = true; // Make the collider convex
+                        // Set the mesh of the placeholder to match the clicked object
+                        placeholderMeshFilter.mesh = clickedMeshFilter.mesh;
+
+                        // Adjust the position of the placeholder based on the mesh bounds
+                        AlignPlaceholderWithMeshBounds(placeholderMeshFilter.mesh);
+
+                        // Now ensure that the collider on the clicked object is convex
+                        Collider clickedCollider = clickedObject.GetComponent<Collider>();
+                        if (clickedCollider != null && clickedCollider is MeshCollider meshCollider)
+                        {
+                            meshCollider.convex = true; // Make the collider convex
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Clicked object doesn't have a MeshCollider or other collider.");
+                        }
+
+                        Debug.Log($"Mesh of placeholder updated to {clickedObject.name}");
                     }
                     else
                     {
-                        Debug.LogWarning("Clicked object doesn't have a MeshCollider or other collider.");
+                        Debug.LogError("Clicked object doesn't have a MeshFilter.");
                     }
-
-                    Debug.Log($"Mesh of placeholder updated to {clickedObject.name}");
-                }
-                else
-                {
-                    Debug.LogError("Clicked object doesn't have a MeshFilter.");
                 }
             }
         }
