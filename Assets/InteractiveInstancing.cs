@@ -73,29 +73,33 @@ public class InteractiveInstancing : MonoBehaviour
         }
     }
 
-    private void AlignPlaceholderWithMeshBounds(Mesh mesh)
+    private void AlignPlaceholderWithMeshBounds(Mesh mesh, float targetSize = 3f)
     {
         // Get the bounds of the mesh and the center position
         Bounds meshBounds = mesh.bounds;
         Vector3 meshCenter = meshBounds.center;
+        float largestDimension = Mathf.Max(meshBounds.size.x, meshBounds.size.y, meshBounds.size.z);
 
         Debug.Log($"Mesh bounds center: {meshCenter}");
         Debug.Log($"Mesh bounds: {meshBounds}");
+        Debug.Log($"Largest dimension: {largestDimension}");
 
-        // Calculate the alignment vector by considering the inverse rotation
-        Vector3 alignmentVector = -meshCenter;
+        // Calculate the scale factor to make the mesh fit the target size
+        float scaleFactor = targetSize / largestDimension;
 
-        // Apply the rotation that you want (-90 on X, 0 on Y, -180 on Z)
-        Quaternion targetRotation = Quaternion.Euler(0, -90, 90);
+        // Scale the alignment vector to ensure proper placement after scaling
+        Vector3 alignmentVector = -meshCenter * scaleFactor;
 
         // Apply the desired rotation to adjust the position of the placeholder
+        Quaternion targetRotation = Quaternion.Euler(0, -90, 90);
         Vector3 adjustedPosition = targetRotation * alignmentVector;
-        adjustedPosition.z += 1;
 
-        // Apply the position and rotation to the placeholder
-        meshPlaceholder.transform.position = adjustedPosition;
-        meshPlaceholder.transform.rotation = targetRotation;
+        // Adjust position after rotation (optional offset)
+        adjustedPosition.z += 3;
+
+        // Apply the position, rotation, and scale to the placeholder
+        meshPlaceholder.transform.localScale = Vector3.one * scaleFactor; // Scale first
+        meshPlaceholder.transform.position = adjustedPosition;            // Align position
+        meshPlaceholder.transform.rotation = targetRotation;              // Apply rotation
     }
-
-
 }
