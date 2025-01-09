@@ -47301,11 +47301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transferOnSecondSelection: 0
+  _transferOnSecondSelection: 1
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
   _oneGrabTransformer: {fileID: 0}
-  _twoGrabTransformer: {fileID: 1324037886}
+  _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
   _rigidbody: {fileID: 1324037878}
@@ -47427,20 +47427,59 @@ MonoBehaviour:
   m_GameObject: {fileID: 1324037875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b053556d972eae24b947c1477538bff1, type: 3}
+  m_Script: {fileID: 11500000, guid: bbb7085c111fcb44493d57d4e336d3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _constraints:
+  _positionConstraints:
     ConstraintsAreRelative: 0
-    MinScale:
-      Constrain: 1
-      Value: 0.1181805
-    MaxScale:
-      Constrain: 1
-      Value: 0.1181805
-    ConstrainXScale: 1
-    ConstrainYScale: 1
-    ConstrainZScale: 1
+    XAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+    YAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+    ZAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+  _rotationConstraints:
+    XAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+    YAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+    ZAxis:
+      ConstrainAxis: 0
+      AxisRange:
+        Min: 0
+        Max: 0
+  _scaleConstraints:
+    ConstraintsAreRelative: 1
+    XAxis:
+      ConstrainAxis: 1
+      AxisRange:
+        Min: 1
+        Max: 1
+    YAxis:
+      ConstrainAxis: 1
+      AxisRange:
+        Min: 1
+        Max: 1
+    ZAxis:
+      ConstrainAxis: 1
+      AxisRange:
+        Min: 1
+        Max: 1
 --- !u!1 &1324267960
 GameObject:
   m_ObjectHideFlags: 0
@@ -67676,11 +67715,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1324037886}
+      addedObject: {fileID: 1324037885}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d7369d604fb4064381604c46aaecc44,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1324037885}
+      addedObject: {fileID: 1324037886}
   m_SourcePrefab: {fileID: 100100000, guid: 9d7369d604fb4064381604c46aaecc44, type: 3}
 --- !u!1 &2141451926
 GameObject:
