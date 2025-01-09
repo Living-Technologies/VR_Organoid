@@ -86,11 +86,11 @@ public class InteractiveInstancing : MonoBehaviour
         Vector3 alignmentVector = -meshCenter;
 
         // Apply the rotation that you want (-90 on X, 0 on Y, -180 on Z)
-        Quaternion targetRotation = Quaternion.Euler(-90, 0, -180);
+        Quaternion targetRotation = Quaternion.Euler(0, -90, 90);
 
         // Apply the desired rotation to adjust the position of the placeholder
         Vector3 adjustedPosition = targetRotation * alignmentVector;
-        adjustedPosition.z += 2;
+        adjustedPosition.z += 1;
 
         // Apply the position and rotation to the placeholder
         meshPlaceholder.transform.position = adjustedPosition;
