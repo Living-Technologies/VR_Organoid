@@ -52,7 +52,7 @@ public class InteractiveInstancing : MonoBehaviour
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 Debug.Log($"Clicked on object: {clickedObject.name}");
-                if(clickedObject.name != "Sphere")
+                if (clickedObject.name != "Sphere")
                 {
                     // Ensure the clicked object has a MeshFilter
                     MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
@@ -63,7 +63,7 @@ public class InteractiveInstancing : MonoBehaviour
                         placeholderMeshFilter.mesh = clickedMeshFilter.mesh;
 
                         // Adjust the position of the placeholder based on the mesh bounds
-                        AlignPlaceholderWithMeshBounds(placeholderMeshFilter.mesh);
+                        AlignPlaceholderWithMeshBounds(placeholderMeshFilter.mesh, Camera.main.transform);
 
                         // Now ensure that the collider on the clicked object is convex
                         Collider clickedCollider = clickedObject.GetComponent<Collider>();
@@ -87,7 +87,7 @@ public class InteractiveInstancing : MonoBehaviour
         }
     }
 
-    private void AlignPlaceholderWithMeshBounds(Mesh mesh, float targetSize = 3f)
+    private void AlignPlaceholderWithMeshBounds(Mesh mesh, Transform cameraTransform, float targetSize = 3f, float distanceFromCamera = 3f)
     {
         // Get the bounds of the mesh and the center position
         Bounds meshBounds = mesh.bounds;
@@ -104,16 +104,18 @@ public class InteractiveInstancing : MonoBehaviour
         // Scale the alignment vector to ensure proper placement after scaling
         Vector3 alignmentVector = -meshCenter * scaleFactor;
 
-        // Apply the desired rotation to adjust the position of the placeholder
-        Quaternion targetRotation = Quaternion.Euler(0, -90, 90);
-        Vector3 adjustedPosition = targetRotation * alignmentVector;
+        // Calculate the position in front of the camera
+        Vector3 spawnPosition = cameraTransform.position + cameraTransform.forward * distanceFromCamera;
 
-        // Adjust position after rotation (optional offset)
-        adjustedPosition.z += 3;
+        // Apply rotation of the camera to align the object
+        Quaternion targetRotation = cameraTransform.rotation;
+
+        // Adjust position with alignment vector
+        spawnPosition += targetRotation * alignmentVector;
 
         // Apply the position, rotation, and scale to the placeholder
         meshPlaceholder.transform.localScale = Vector3.one * scaleFactor; // Scale first
-        meshPlaceholder.transform.position = adjustedPosition;            // Align position
-        meshPlaceholder.transform.rotation = targetRotation;              // Apply rotation
+        meshPlaceholder.transform.position = spawnPosition;              // Align position
+        meshPlaceholder.transform.rotation = targetRotation;             // Apply rotation
     }
 }
