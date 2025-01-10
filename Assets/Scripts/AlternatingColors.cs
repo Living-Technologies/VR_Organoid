@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AlternatingColors : MonoBehaviour
 {
-    public Material sharedMaterial; // Assign the material used by all sub-objects
     public Color[] alternatingColors; // Array of 15 colors
     private Renderer[] subObjectRenderers;
 
@@ -14,11 +13,11 @@ public class AlternatingColors : MonoBehaviour
 
         for (int i = 0; i < subObjectRenderers.Length; i++)
         {
-            subObjectRenderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
-            subObjectRenderers[i].receiveShadows = false; // Disable receiving shadows
-            subObjectRenderers[i].motionVectorGenerationMode = MotionVectorGenerationMode.Camera; // Disable object motion vectors
-            subObjectRenderers[i].lightProbeUsage = UnityEngine.Rendering.LightProbeUsage.Off; // Disable light probes
-            subObjectRenderers[i].reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off; // Disable reflection probes
+            // subObjectRenderers[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
+            // subObjectRenderers[i].receiveShadows = false; // Disable receiving shadows
+            // subObjectRenderers[i].motionVectorGenerationMode = MotionVectorGenerationMode.Camera; // Disable object motion vectors
+            // subObjectRenderers[i].lightProbeUsage = UnityEngine.Rendering.LightProbeUsage.Off; // Disable light probes
+            // subObjectRenderers[i].reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off; // Disable reflection probes
             // Calculate the alternating color
             Color color = alternatingColors[i % alternatingColors.Length];
             

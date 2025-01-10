@@ -37394,6 +37394,7 @@ GameObject:
   - component: {fileID: 1382720476}
   - component: {fileID: 1382720475}
   - component: {fileID: 1382720474}
+  - component: {fileID: 1382720479}
   m_Layer: 0
   m_Name: '[BuildingBlock] Camera Rig'
   m_TagString: Untagged
@@ -37551,6 +37552,18 @@ Transform:
   - {fileID: 537007777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1382720479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382720473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e088a01fa58a547a703cf7e6ad8b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1385543100
 GameObject:
   m_ObjectHideFlags: 0
@@ -52171,6 +52184,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3251422297440613182, guid: 1865cffdea858ef45b46ad284682c453,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3251422297440613182, guid: 1865cffdea858ef45b46ad284682c453,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1865cffdea858ef45b46ad284682c453,
         type: 3}
       propertyPath: m_Name
@@ -54551,17 +54574,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be919b3bf95cfd54a81ca380a00f2c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedMaterial: {fileID: 2100000, guid: 3e397b95c6ccc7b4a9f4cc29ca7d33c5, type: 2}
   alternatingColors:
-  - {r: 0.8988209, g: 0, b: 1, a: 0}
-  - {r: 0.38375092, g: 0, b: 1, a: 0}
-  - {r: 0, g: 0.4050064, b: 1, a: 0}
-  - {r: 0, g: 1, b: 0.7028632, a: 0}
-  - {r: 0.2417232, g: 0.9245283, b: 0.013082923, a: 0}
-  - {r: 0.6811203, g: 0.990566, b: 0, a: 0}
-  - {r: 1, g: 0.9372188, b: 0, a: 0}
-  - {r: 0.990566, g: 0.55977917, b: 0.042052314, a: 0}
-  - {r: 0.9339623, g: 0, b: 0, a: 0}
+  - {r: 0.8988209, g: 0, b: 1, a: 0.19607843}
+  - {r: 0.38375092, g: 0, b: 1, a: 0.19607843}
+  - {r: 0, g: 0.4050064, b: 1, a: 0.19607843}
+  - {r: 0, g: 1, b: 0.7028632, a: 0.19607843}
+  - {r: 0.2417232, g: 0.9245283, b: 0.013082923, a: 0.19607843}
+  - {r: 0.6811203, g: 0.990566, b: 0, a: 0.19607843}
+  - {r: 1, g: 0.9372188, b: 0, a: 0.19607843}
+  - {r: 0.990566, g: 0.55977917, b: 0.042052314, a: 0.19607843}
+  - {r: 0.9339623, g: 0, b: 0, a: 0.19607843}
 --- !u!114 &2126359969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54575,6 +54597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshPlaceholder: {fileID: 2053469103}
+  membraneMaterial: {fileID: 2100000, guid: 3e397b95c6ccc7b4a9f4cc29ca7d33c5, type: 2}
 --- !u!4 &2126359970 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1865cffdea858ef45b46ad284682c453,
