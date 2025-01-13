@@ -1,4 +1,6 @@
 using UnityEngine;
+using Oculus.Interaction;
+using Oculus.Interaction.Surfaces;
 
 public class InteractiveInstancing : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class InteractiveInstancing : MonoBehaviour
     private MeshFilter placeholderMeshFilter;
 
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
+    [SerializeField] private Material skyboxMaterial; // Skybox material assigned in the Inspector
 
     private void Start()
     {
@@ -33,14 +36,64 @@ public class InteractiveInstancing : MonoBehaviour
                 renderer.materials = new Material[] { membraneMaterial };
             }
 
-            // Ensure colliders are present for interaction
-            if (!renderer.gameObject.TryGetComponent(out Collider _))
+            // Create a collider surface and retrieve the collider
+            Collider collider = CreateCollider(renderer.gameObject);
+            ColliderSurface surfaceCollider = CreateColliderSurface(renderer.gameObject);
+            surfaceCollider.InjectCollider(collider);
+
+            // Add Ray Interactable if missing
+            if (!renderer.gameObject.TryGetComponent(out RayInteractable rayInteractable))
             {
-                renderer.gameObject.AddComponent<BoxCollider>();
+                rayInteractable = renderer.gameObject.AddComponent<RayInteractable>();
             }
+
+            // Set the collider surface for interaction
+            rayInteractable.InjectSurface(surfaceCollider);
+            rayInteractable.InjectOptionalSelectSurface(surfaceCollider);
+
+            Debug.Log($"Ray interactable set for {renderer.gameObject.name}");
         }
 
         Debug.Log($"Optimized instancing with interaction for {childRenderers.Length} objects.");
+    }
+
+    private Collider CreateCollider(GameObject target)
+    {
+        // Check if the object already has a collider surface
+        Collider collider = target.GetComponent<Collider>();
+        if (collider == null)
+        {
+            // Add a BoxCollider if none exists
+            BoxCollider boxCollider = target.AddComponent<BoxCollider>();
+
+            // Align collider bounds with the object's renderer bounds
+            Renderer renderer = target.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                boxCollider.center = renderer.bounds.center - target.transform.position;
+                boxCollider.size = renderer.bounds.size;
+            }
+
+            Debug.Log($"Collider surface created for {target.name}");
+            collider = boxCollider;
+        }
+
+        return collider;
+    }
+
+    private ColliderSurface CreateColliderSurface(GameObject target)
+    {
+        // Check if the object already has a collider surface
+        ColliderSurface colliderSurface = target.GetComponent<ColliderSurface>();
+        if (colliderSurface == null)
+        {
+            // Add a ColliderSurface if none exists
+            colliderSurface = target.AddComponent<ColliderSurface>();
+
+            Debug.Log($"Collider surface created for {target.name}");
+        }
+
+        return colliderSurface;
     }
 
     private void Update()
@@ -142,5 +195,5 @@ public class InteractiveInstancing : MonoBehaviour
         meshPlaceholder.transform.position = spawnPosition;              // Align position
         meshPlaceholder.transform.rotation = targetRotation;             // Apply rotation
     }
-
 }
+
