@@ -10,7 +10,6 @@ public class InteractiveInstancing : MonoBehaviour
     private MeshRenderer placeholderMeshRenderer;
 
     [SerializeField] private RayInteractor leftRayInteractor; // Assign your left-hand Ray Interactor
-    [SerializeField] private RayInteractor rightRayInteractor;
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
     [SerializeField] private OVRHand leftHand;
 
