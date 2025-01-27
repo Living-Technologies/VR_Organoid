@@ -39,6 +39,11 @@ public class InteractiveInstancing : MonoBehaviour
 
             // Create a collider surface and retrieve the collider
             Collider collider = CreateCollider(renderer.gameObject);
+            if (collider == null)
+            {
+                Debug.LogError("Failed to create collider for object: " + renderer.gameObject.name);
+                continue;
+            }
             ColliderSurface surfaceCollider = CreateColliderSurface(renderer.gameObject);
             surfaceCollider.InjectCollider(collider);
 
