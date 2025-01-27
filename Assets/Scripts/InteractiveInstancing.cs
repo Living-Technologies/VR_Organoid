@@ -89,11 +89,11 @@ public class InteractiveInstancing : MonoBehaviour
 
     private void Update()
     {
-        // if((leftHand.IsTracked && leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index)) 
-        if (Input.GetMouseButtonDown(0))
+        if(leftHand.IsTracked && leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index)) 
+        // if (Input.GetMouseButtonDown(0))
         {
-            // Ray ray = leftRayInteractor.Ray;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = leftRayInteractor.Ray;
+            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GameObject clickedObject = hit.collider.gameObject;
