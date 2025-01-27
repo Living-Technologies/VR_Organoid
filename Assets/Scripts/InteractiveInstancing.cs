@@ -7,13 +7,14 @@ public class InteractiveInstancing : MonoBehaviour
     private Renderer[] childRenderers;
     public GameObject meshPlaceholder; // Object in front of the camera
     private MeshFilter placeholderMeshFilter;
+    private MeshRenderer placeholderMeshRenderer;
 
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
-    [SerializeField] private Material skyboxMaterial; // Skybox material assigned in the Inspector
 
     private void Start()
     {
         placeholderMeshFilter = meshPlaceholder.GetComponent<MeshFilter>();
+        placeholderMeshRenderer = meshPlaceholder.GetComponent<MeshRenderer>();
 
         // Ensure the placeholder is active and visible
         meshPlaceholder.SetActive(true);
@@ -23,7 +24,7 @@ public class InteractiveInstancing : MonoBehaviour
         for (int i = 0; i < childRenderers.Length; i++)
         {
             Renderer renderer = childRenderers[i];
-
+            
             renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
             renderer.receiveShadows = false; // Disable receiving shadows
             renderer.motionVectorGenerationMode = MotionVectorGenerationMode.Camera; // Disable object motion vectors
@@ -50,36 +51,20 @@ public class InteractiveInstancing : MonoBehaviour
             // Set the collider surface for interaction
             rayInteractable.InjectSurface(surfaceCollider);
             rayInteractable.InjectOptionalSelectSurface(surfaceCollider);
-
-            Debug.Log($"Ray interactable set for {renderer.gameObject.name}");
         }
-
-        Debug.Log($"Optimized instancing with interaction for {childRenderers.Length} objects.");
     }
 
-    private Collider CreateCollider(GameObject target)
+   private Collider CreateCollider(GameObject target)
     {
-        // Check if the object already has a collider surface
-        Collider collider = target.GetComponent<Collider>();
-        if (collider == null)
+        MeshCollider meshCollider = target.GetComponent<MeshCollider>();
+        if (meshCollider == null)
         {
-            // Add a BoxCollider if none exists
-            BoxCollider boxCollider = target.AddComponent<BoxCollider>();
-
-            // Align collider bounds with the object's renderer bounds
-            Renderer renderer = target.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                boxCollider.center = renderer.bounds.center - target.transform.position;
-                boxCollider.size = renderer.bounds.size;
-            }
-
-            Debug.Log($"Collider surface created for {target.name}");
-            collider = boxCollider;
+            meshCollider = target.AddComponent<MeshCollider>();
+            meshCollider.convex = true; // Make the collider convex
         }
-
-        return collider;
+        return meshCollider;
     }
+
 
     private ColliderSurface CreateColliderSurface(GameObject target)
     {
@@ -89,8 +74,6 @@ public class InteractiveInstancing : MonoBehaviour
         {
             // Add a ColliderSurface if none exists
             colliderSurface = target.AddComponent<ColliderSurface>();
-
-            Debug.Log($"Collider surface created for {target.name}");
         }
 
         return colliderSurface;
@@ -104,11 +87,11 @@ public class InteractiveInstancing : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GameObject clickedObject = hit.collider.gameObject;
-                Debug.Log($"Clicked on object: {clickedObject.name}");
                 if (clickedObject.name != "Sphere")
                 {
                     // Ensure the clicked object has a MeshFilter
                     MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
+                    MeshRenderer clickedMeshRenderer = clickedObject.GetComponent<MeshRenderer>();
 
                     if (clickedMeshFilter != null && clickedObject.name != "Sphere")
                     {
@@ -128,8 +111,6 @@ public class InteractiveInstancing : MonoBehaviour
                         {
                             Debug.LogWarning("Clicked object doesn't have a MeshCollider or other collider.");
                         }
-
-                        Debug.Log($"Mesh of placeholder updated to {clickedObject.name}");
                     }
                     else
                     {
