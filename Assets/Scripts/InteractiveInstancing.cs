@@ -89,11 +89,12 @@ public class InteractiveInstancing : MonoBehaviour
 
     private void Update()
     {
-        if(leftHand.IsTracked && leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index))
-        // if (Input.GetMouseButtonDown(0) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
+        // if((leftHand.IsTracked && leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index)) 
+        if (Input.GetMouseButtonDown(0))
         {
-            Ray leftRay = leftRayInteractor.Ray;
-            if (Physics.Raycast(leftRay, out RaycastHit hit))
+            // Ray ray = leftRayInteractor.Ray;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 if (clickedObject.name != "Sphere")
@@ -130,7 +131,7 @@ public class InteractiveInstancing : MonoBehaviour
         }
     }
 
-    private void AlignPlaceholderWithMeshBounds(Mesh mesh, Transform cameraTransform, float targetSize = 3f, float distanceFromCamera = 3f)
+    private void AlignPlaceholderWithMeshBounds(Mesh mesh, Transform cameraTransform, float targetSize = 0.5f, float distanceFromCamera = 0.5f)
     {
         if (mesh == null)
         {
