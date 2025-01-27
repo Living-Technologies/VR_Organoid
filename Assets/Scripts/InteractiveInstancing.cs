@@ -9,7 +9,10 @@ public class InteractiveInstancing : MonoBehaviour
     private MeshFilter placeholderMeshFilter;
     private MeshRenderer placeholderMeshRenderer;
 
+    [SerializeField] private RayInteractor leftRayInteractor; // Assign your left-hand Ray Interactor
+    [SerializeField] private RayInteractor rightRayInteractor;
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
+    [SerializeField] private OVRHand leftHand;
 
     private void Start()
     {
@@ -86,10 +89,11 @@ public class InteractiveInstancing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(leftHand.IsTracked && leftHand.GetFingerIsPinching(OVRHand.HandFinger.Index))
+        // if (Input.GetMouseButtonDown(0) || OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger, OVRInput.Controller.LTouch))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            Ray leftRay = leftRayInteractor.Ray;
+            if (Physics.Raycast(leftRay, out RaycastHit hit))
             {
                 GameObject clickedObject = hit.collider.gameObject;
                 if (clickedObject.name != "Sphere")
