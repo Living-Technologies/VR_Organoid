@@ -26,20 +26,21 @@ public class InteractiveInstancing : MonoBehaviour
         for (int i = 0; i < childRenderers.Length; i++)
         {
             Renderer renderer = childRenderers[i];
-            
-            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; // Disable shadow casting
-            renderer.receiveShadows = false; // Disable receiving shadows
-            renderer.motionVectorGenerationMode = MotionVectorGenerationMode.Camera; // Disable object motion vectors
-            renderer.lightProbeUsage = UnityEngine.Rendering.LightProbeUsage.Off; // Disable light probes
-            renderer.reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off; // Disable reflection probes
 
-            // Clear all materials and assign only the membrane material
+            // Ensure all objects are initialized straight
+            renderer.transform.rotation = Quaternion.identity;
+
+            renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            renderer.receiveShadows = false;
+            renderer.motionVectorGenerationMode = MotionVectorGenerationMode.Camera;
+            renderer.lightProbeUsage = UnityEngine.Rendering.LightProbeUsage.Off;
+            renderer.reflectionProbeUsage = UnityEngine.Rendering.ReflectionProbeUsage.Off;
+
             if (membraneMaterial != null)
             {
                 renderer.materials = new Material[] { membraneMaterial };
             }
 
-            // Create a collider surface and retrieve the collider
             Collider collider = CreateCollider(renderer.gameObject);
             if (collider == null)
             {
@@ -49,17 +50,16 @@ public class InteractiveInstancing : MonoBehaviour
             ColliderSurface surfaceCollider = CreateColliderSurface(renderer.gameObject);
             surfaceCollider.InjectCollider(collider);
 
-            // Add Ray Interactable if missing
             if (!renderer.gameObject.TryGetComponent(out RayInteractable rayInteractable))
             {
                 rayInteractable = renderer.gameObject.AddComponent<RayInteractable>();
             }
 
-            // Set the collider surface for interaction
             rayInteractable.InjectSurface(surfaceCollider);
             rayInteractable.InjectOptionalSelectSurface(surfaceCollider);
         }
     }
+
 
    private Collider CreateCollider(GameObject target)
     {
