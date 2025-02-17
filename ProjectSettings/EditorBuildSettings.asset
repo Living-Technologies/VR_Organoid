@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/tunnel.unity
     guid: 0abfc21b311be154692ccabdfb2e3c3e
+  - enabled: 0
+    path: Assets/basketball.unity
+    guid: 8660406cf6b590648ad881d7a2406bc9
+  - enabled: 1
+    path: Assets/individual.unity
+    guid: f6ceed5da627ce84c92a6a31c4bff5ec
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2ca5cf7f0ae7719428cf6cfd4090c8a3,
       type: 2}
