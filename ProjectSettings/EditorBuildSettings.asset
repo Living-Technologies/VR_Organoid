@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/individual.unity
     guid: f6ceed5da627ce84c92a6a31c4bff5ec
+  - enabled: 1
+    path: Assets/well-plate.unity
+    guid: 783bfd0ade3246d44959c989a05dd5a7
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2ca5cf7f0ae7719428cf6cfd4090c8a3,
       type: 2}
