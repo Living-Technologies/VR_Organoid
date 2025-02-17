@@ -22234,13 +22234,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8566527186997311597, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
@@ -24608,7 +24628,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2038919049}
     - target: {fileID: 8182325033161516267, guid: 5292db714b0f87045a7dfd9be93b1be5,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
