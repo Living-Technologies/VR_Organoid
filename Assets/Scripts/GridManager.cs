@@ -43,7 +43,6 @@ public class GridManager : MonoBehaviour
 
     void OnCellClicked(string position)
     {
-        Debug.Log("Clicked: " + position);
         if (selectionText != null)
         {
             selectionText.text = "Selected: " + position;
