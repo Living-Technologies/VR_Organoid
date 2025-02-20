@@ -28,7 +28,7 @@ public class GridManager : MonoBehaviour
                 string position = $"{rows[i]}{j}";
 
                 // Set button text
-                TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
+                Text buttonText = button.GetComponentInChildren<Text>();
                 if (buttonText != null) buttonText.text = position;
 
                 // Add listener properly using a captured variable
