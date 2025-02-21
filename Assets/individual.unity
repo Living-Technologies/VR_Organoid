@@ -10358,7 +10358,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1000861371}
   _rigidbody: {fileID: 1000861370}
   _grabSource: {fileID: 0}
   _useClosestPointAsGrabSource: 1
@@ -19358,6 +19358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866887928}
   - component: {fileID: 866887927}
+  - component: {fileID: 866887929}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -19392,6 +19393,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &866887929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866887926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf760b17d4e83a478b0e4f11c9007ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &869163834
 GameObject:
   m_ObjectHideFlags: 0
@@ -47292,8 +47305,8 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
-  _rigidbody: {fileID: 0}
+  _pointableElement: {fileID: 1000861371}
+  _rigidbody: {fileID: 1000861370}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
