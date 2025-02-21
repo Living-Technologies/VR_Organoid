@@ -19405,6 +19405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf760b17d4e83a478b0e4f11c9007ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rawImage: {fileID: 0}
 --- !u!1 &869163834
 GameObject:
   m_ObjectHideFlags: 0
@@ -22218,47 +22219,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1993601191}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1000861367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000861365}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactorFilters: []
-  _maxInteractors: -1
-  _maxSelectingInteractors: -1
-  _data: {fileID: 0}
-  _pointableElement: {fileID: 1000861371}
-  _rigidbody: {fileID: 1000861370}
-  _physicsGrabbable: {fileID: 0}
-  _resetGrabOnGrabsUpdated: 1
-  _scoringModifier:
-    _positionRotationWeight: 0.8
-  _slippiness: 0
-  _supportedGrabTypes: 3
-  _pinchGrabRules:
-    _thumbRequirement: 1
-    _indexRequirement: 1
-    _middleRequirement: 1
-    _ringRequirement: 0
-    _pinkyRequirement: 0
-    _unselectMode: 0
-  _palmGrabRules:
-    _thumbRequirement: 1
-    _indexRequirement: 2
-    _middleRequirement: 2
-    _ringRequirement: 2
-    _pinkyRequirement: 1
-    _unselectMode: 0
-  _movementProvider: {fileID: 0}
-  _handAligment: 1
-  _handGrabPoses: []
 --- !u!114 &1000861368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22271,7 +22231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c322dd597bd3abb4a8d49fa434c17f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetThreshold: 20
+  resetThreshold: 5
 --- !u!54 &1000861370 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
@@ -45076,7 +45036,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _targetTransform
       value: 
-      objectReference: {fileID: 88265280}
+      objectReference: {fileID: 0}
     - target: {fileID: 6099986637667303143, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
       propertyPath: _transferOnSecondSelection
@@ -45114,7 +45074,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: m_Mass
+      value: 0.0000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8072234692418743971, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
@@ -45204,10 +45179,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1000861368}
-    - targetCorrespondingSourceObject: {fileID: 1807350511420674344, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1000861367}
   m_SourcePrefab: {fileID: 100100000, guid: b40c01843778b2446b1d3dcd5e5fdc8f, type: 3}
 --- !u!1 &1997950859
 GameObject:

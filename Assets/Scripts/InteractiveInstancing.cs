@@ -7,7 +7,7 @@ public class InteractiveInstancing : MonoBehaviour
     private Renderer[] childRenderers;
     public GameObject meshPlaceholder; // Object in front of the camera
     private MeshFilter placeholderMeshFilter;
-    private MeshRenderer placeholderMeshRenderer;
+    private MeshCollider placeholderMeshCollider;
 
     [SerializeField] private RayInteractor leftRayInteractor; // Assign your left-hand Ray Interactor
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
@@ -16,7 +16,7 @@ public class InteractiveInstancing : MonoBehaviour
     private void Start()
     {
         placeholderMeshFilter = meshPlaceholder.GetComponent<MeshFilter>();
-        placeholderMeshRenderer = meshPlaceholder.GetComponent<MeshRenderer>();
+        placeholderMeshCollider = meshPlaceholder.GetComponent<MeshCollider>();
 
         // Ensure the placeholder is active and visible
         meshPlaceholder.SetActive(true);
@@ -100,12 +100,13 @@ public class InteractiveInstancing : MonoBehaviour
                 {
                     // Ensure the clicked object has a MeshFilter
                     MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
-                    MeshRenderer clickedMeshRenderer = clickedObject.GetComponent<MeshRenderer>();
+                    MeshCollider çlickedMeshCollider = clickedObject.GetComponent<MeshCollider>();
 
                     if (clickedMeshFilter != null && clickedObject.name != "Sphere")
                     {
                         // Set the mesh of the placeholder to match the clicked object
                         placeholderMeshFilter.mesh = clickedMeshFilter.mesh;
+                        placeholderMeshCollider.sharedMesh = clickedMeshFilter.mesh;
 
                         // Adjust the position of the placeholder based on the mesh bounds
                         AlignPlaceholderWithMeshBounds(placeholderMeshFilter.mesh, Camera.main.transform);

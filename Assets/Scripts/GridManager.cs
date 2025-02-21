@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEditor.Profiling;
+using UnityEngine.Profiling;
 using System.Reflection;
 
 public class GridManager : MonoBehaviour
@@ -20,32 +20,45 @@ public class GridManager : MonoBehaviour
 
     void GenerateGrid()
     {
+        GameObject sceneManagerObject = GameObject.Find("ClickManager");
+        TiffReader tiffReader = sceneManagerObject.GetComponent<TiffReader>();
+
         for (int i = 0; i < rows.Length; i++)
         {
             for (int j = 1; j <= columns; j++)
             {
                 GameObject button = Instantiate(buttonPrefab, gridParent);
                 string position = $"{rows[i]}{j}";
-
+                button.name = position;
                 // Set button text
                 Text buttonText = button.GetComponentInChildren<Text>();
                 if (buttonText != null) buttonText.text = position;
 
                 // Add listener properly using a captured variable
                 Button btnComponent = button.GetComponent<Button>();
+                Debug.Log($"Button component: {button.name}");
                 if (btnComponent != null)
                 {
-                    btnComponent.onClick.AddListener(() => OnCellClicked(position));
+                    Debug.Log($"Adding listener to button {position}");
+                    string capturedPosition = position; // Capture position in a local variable
+                    btnComponent.onClick.AddListener(() => OnButtonClick(capturedPosition));
                 }
+
             }
         }
     }
 
-    void OnCellClicked(string position)
+    private void OnButtonClick(string well)
     {
-        if (selectionText != null)
+        TiffReader tiffReader = FindObjectOfType<TiffReader>();
+        if (tiffReader != null)
         {
-            selectionText.text = "Selected: " + position;
+            tiffReader.GetTexture(well);
+        }
+        else
+        {
+            Debug.LogError("TiffReader not found!");
         }
     }
+
 }
