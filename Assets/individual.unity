@@ -44924,13 +44924,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
+      propertyPath: _scaleConstraints.XAxis.AxisRange.Min
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
       propertyPath: _scaleConstraints.XAxis.ConstrainAxis
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
+      propertyPath: _scaleConstraints.YAxis.AxisRange.Min
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
       propertyPath: _scaleConstraints.YAxis.ConstrainAxis
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
+        type: 3}
+      propertyPath: _scaleConstraints.ZAxis.AxisRange.Min
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 922687626164847997, guid: b40c01843778b2446b1d3dcd5e5fdc8f,
         type: 3}
