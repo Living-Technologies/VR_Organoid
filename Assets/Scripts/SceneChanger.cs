@@ -12,18 +12,18 @@ public class SceneChanger : MonoBehaviour
 
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);  // Load scene asynchronously
-        asyncLoad.allowSceneActivation = false;  // Optional: Prevent automatic scene activation
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = false;  
 
-        while (!asyncLoad.isDone)
+        while (asyncLoad.progress < 0.9f)
         {
-
-            if (asyncLoad.progress >= 0.9f)  // Optional: Once loading is complete
-            {
-                asyncLoad.allowSceneActivation = true;  // Activate the scene
-            }
-
-            yield return null;  // Wait for the next frame
+            yield return null;  // Wait for the scene to load up to 90%
         }
+
+        // Add a delay or display a UI message before switching
+        yield return new WaitForSeconds(1f);  // Example delay
+
+        asyncLoad.allowSceneActivation = true;  // Activate the scene
     }
+
 }
