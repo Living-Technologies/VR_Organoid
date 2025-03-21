@@ -10,27 +10,27 @@ public class SceneChanger : MonoBehaviour
     {
         StartCoroutine(LoadSceneAsync(sceneName));
     }
-
     private IEnumerator LoadSceneAsync(string sceneName)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);  // Load scene asynchronously
-        asyncLoad.allowSceneActivation = false;  // Optional: Prevent automatic scene activation
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+        asyncLoad.allowSceneActivation = false;
 
-        while (!asyncLoad.isDone)
+        while (!asyncLoad.isDone) // Ensure full loading
         {
-
-            if (asyncLoad.progress >= 0.9f)  // Optional: Once loading is complete
+            if (asyncLoad.progress >= 0.9f)
             {
-                asyncLoad.allowSceneActivation = true;  // Activate the scene
+                // Optional: Add a small delay to ensure stability
+                yield return new WaitForSeconds(1f);
+                
+                asyncLoad.allowSceneActivation = true;
             }
-
-            yield return null;  // Wait for the next frame
+            yield return null;
         }
     }
 
     private void Update()
     {
-        if (leftHand.GetFingerIsPinching(OVRHand.HandFinger.Middle))  // Check if the index finger is pinching
+        if (leftHand.GetFingerIsPinching(OVRHand.HandFinger.Pinky))  // Check if the index finger is pinching
         {
             ChangeScene("intro-scene");  // Change scene
         }
