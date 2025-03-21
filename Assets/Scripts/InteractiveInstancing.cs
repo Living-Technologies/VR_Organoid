@@ -12,6 +12,7 @@ public class InteractiveInstancing : MonoBehaviour
     [SerializeField] private RayInteractor leftRayInteractor; // Assign your left-hand Ray Interactor
     [SerializeField] private Material membraneMaterial; // Assign the membrane material in the Inspector
     [SerializeField] private OVRHand leftHand;
+    [SerializeField] private bool moveToCamera;
 
     private void Start()
     {
@@ -96,13 +97,12 @@ public class InteractiveInstancing : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 GameObject clickedObject = hit.collider.gameObject;
-                if (clickedObject.name != "Sphere")
+                if (clickedObject.name != "Icosphere")
                 {
                     // Ensure the clicked object has a MeshFilter
                     MeshFilter clickedMeshFilter = clickedObject.GetComponent<MeshFilter>();
-                    MeshCollider çlickedMeshCollider = clickedObject.GetComponent<MeshCollider>();
 
-                    if (clickedMeshFilter != null && clickedObject.name != "Sphere")
+                    if (clickedMeshFilter != null)
                     {
                         // Set the mesh of the placeholder to match the clicked object
                         placeholderMeshFilter.mesh = clickedMeshFilter.mesh;
@@ -183,8 +183,15 @@ public class InteractiveInstancing : MonoBehaviour
 
         // Apply the position, rotation, and scale to the placeholder
         meshPlaceholder.transform.localScale = Vector3.one * scaleFactor; // Scale first
-        meshPlaceholder.transform.position = spawnPosition;              // Align position
-        meshPlaceholder.transform.rotation = targetRotation;             // Apply rotation
+        if (moveToCamera)
+        {
+            meshPlaceholder.transform.position = spawnPosition;              // Align position
+            meshPlaceholder.transform.rotation = targetRotation;             // Apply rotation
+        }
+        else
+        {
+            meshPlaceholder.transform.position = alignmentVector;              // Align position
+        }
     }
 }
 

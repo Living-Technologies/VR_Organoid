@@ -30,7 +30,7 @@ public class SceneChanger : MonoBehaviour
 
     private void Update()
     {
-        if (leftHand.GetFingerIsPinching(OVRHand.HandFinger.Pinky))  // Check if the index finger is pinching
+        if (leftHand.GetFingerIsPinching(OVRHand.HandFinger.Middle))  // Check if the index finger is pinching
         {
             ChangeScene("intro-scene");  // Change scene
         }
