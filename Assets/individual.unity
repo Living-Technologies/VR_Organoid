@@ -844,7 +844,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 56573649122be4e46b8c04c49b0c4fad,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.214
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56573649122be4e46b8c04c49b0c4fad,
         type: 3}
@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 56573649122be4e46b8c04c49b0c4fad,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.279
+      value: -0.107
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56573649122be4e46b8c04c49b0c4fad,
         type: 3}
@@ -19265,7 +19265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 866887928}
   - component: {fileID: 866887927}
-  - component: {fileID: 866887929}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -19285,6 +19284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da66781ba6e782f4ebe1c34b62a1c99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftHand: {fileID: 620016091}
 --- !u!4 &866887928
 Transform:
   m_ObjectHideFlags: 0
@@ -19300,19 +19300,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &866887929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866887926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf760b17d4e83a478b0e4f11c9007ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawImage: {fileID: 0}
 --- !u!1 &869163834
 GameObject:
   m_ObjectHideFlags: 0

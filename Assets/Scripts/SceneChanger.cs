@@ -5,6 +5,7 @@ using System.Collections;
 
 public class SceneChanger : MonoBehaviour
 {
+    [SerializeField] private OVRHand leftHand;
     public void ChangeScene(string sceneName)
     {
         StartCoroutine(LoadSceneAsync(sceneName));
@@ -18,12 +19,20 @@ public class SceneChanger : MonoBehaviour
         while (!asyncLoad.isDone)
         {
 
-            if (asyncLoad.progress >= 0.98f)  // Optional: Once loading is complete
+            if (asyncLoad.progress >= 0.9f)  // Optional: Once loading is complete
             {
                 asyncLoad.allowSceneActivation = true;  // Activate the scene
             }
 
             yield return null;  // Wait for the next frame
+        }
+    }
+
+    private void Update()
+    {
+        if (leftHand.GetFingerIsPinching(OVRHand.HandFinger.Middle))  // Check if the index finger is pinching
+        {
+            ChangeScene("intro-scene");  // Change scene
         }
     }
 }

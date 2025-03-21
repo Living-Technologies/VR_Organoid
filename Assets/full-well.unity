@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2606bf2f0c914a7aba4390f29ba2eb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 8
+  _updateMode: 12
   _updateAfter: {fileID: 1519071449}
   _iModifyDataFromSourceMono: {fileID: 1519071449}
   _applyModifier: 0
@@ -9626,8 +9626,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c67033f580359c4581dff1ccffcca91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 4
-  _updateAfter: {fileID: 0}
+  _updateMode: 12
+  _updateAfter: {fileID: 1521800755}
   _iModifyDataFromSourceMono: {fileID: 1521800755}
   _applyModifier: 1
   _wristPositionLockCurve:
@@ -12687,13 +12687,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.19634
+      value: 23.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2c37906274de514aab2bd73d69b424b,
         type: 3}
@@ -19102,7 +19117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 866887928}
   - component: {fileID: 866887927}
-  - component: {fileID: 866887929}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -19122,6 +19136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da66781ba6e782f4ebe1c34b62a1c99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftHand: {fileID: 620016091}
 --- !u!4 &866887928
 Transform:
   m_ObjectHideFlags: 0
@@ -19137,19 +19152,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &866887929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 866887926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf760b17d4e83a478b0e4f11c9007ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rawImage: {fileID: 0}
 --- !u!1 &869163834
 GameObject:
   m_ObjectHideFlags: 0
@@ -33659,7 +33661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f273abee0604ad2409c9bbc9a60e461e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 0
+  _updateMode: 12
   _updateAfter: {fileID: 0}
   _cameraRigRef: {fileID: 844344705}
   _processLateUpdates: 0
@@ -33695,7 +33697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a379f34d4f4f2e408d34f14bfb753ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 8
+  _updateMode: 12
   _updateAfter: {fileID: 2058516921}
   _iModifyDataFromSourceMono: {fileID: 2058516921}
   _applyModifier: 0
@@ -33976,12 +33978,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4855895ba1c44959a306beb7ae318fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 0
+  _updateMode: 6
   _updateAfter: {fileID: 0}
   _cameraRigRef: {fileID: 844344705}
   _processLateUpdates: 0
   _handedness: 1
-  _ovrHand: {fileID: 0}
+  _ovrHand: {fileID: 1287131708}
   _trackingToWorldTransformer: {fileID: 844344704}
   _handSkeletonProvider: {fileID: 435597370}
 --- !u!4 &1541609165
@@ -44876,13 +44878,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.018723
+      value: 23.322384
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ad4f013628ca35b4f9c10e21bbe2e1db,
         type: 3}
@@ -46551,7 +46568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcebab82b3c5dd4fac023079b7fed29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 8
+  _updateMode: 4
   _updateAfter: {fileID: 2058516922}
   _iModifyDataFromSourceMono: {fileID: 2058516922}
   _applyModifier: 1
@@ -46568,7 +46585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7daff26e66096cd49a253ca3ab592c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _updateMode: 8
+  _updateMode: 12
   _updateAfter: {fileID: 1541609164}
   _iModifyDataFromSourceMono: {fileID: 1541609164}
   _applyModifier: 1
